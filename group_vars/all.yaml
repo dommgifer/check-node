@@ -1,0 +1,55 @@
+# Rancher portal
+dns_hostname: aistack.iii.org
+rancher_password: openstack
+rancher_url: https://{{ dns_hostname }}
+vip: 172.16.0.15
+
+# Host user  that can run docker commands
+host_user: ubuntu
+
+# Host interface
+interface: ens3
+
+#AIstack version    
+aistack_version: 1.0.1
+
+# docker
+docker_version: 18.09
+
+# rke version, Check release https://github.com/rancher/rke/releases
+rke_version: v0.2.8
+
+# helm version, Check release https://github.com/helm/helm/releases
+helm_version: v2.14.3
+
+# cert manager version, 
+cert_manager_version: v0.5.2
+
+# Kubetnetes network: flannel, calico, canal
+network_provider: canal
+
+# mariadb 
+mariadb_username: admin
+mariadb_password: openstack
+
+# rabbitmq
+rabbitmq_username: aistack
+rabbitmq_password: openstack
+
+# minio
+minio_username: aistack
+minio_password: openstack
+## minio server mode, i.e. standalone or distributed.
+## Distributed Minio ref: https://docs.minio.io/docs/distributed-minio-quickstart-guide
+## if used distributed, please check worker number of nodes >= 4 .
+minio_server_mode: standalone
+
+# Kubernetes nfs-client-provisioner
+enable_nfs_client: yes
+nfs_server: 10.50.2.12
+nfs_server_path: /nfs
+nfs_replicacount: 3
+
+# Nvidia GPU options, check GPU driver in  https://www.nvidia.com.tw/Download/index.aspx?lang=tw
+# example: if version was 430.50, the driver was nvidia-driver-430
+nvidia_driver_version: nvidia-driver-430
